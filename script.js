@@ -102,7 +102,7 @@ form?.addEventListener('submit', (e) => {
 const scrollTopBtn = document.getElementById('scrollTopBtn');
 
 // Show/hide scroll to top button based on scroll position
-window.addEventListener('scroll', () => {look 
+window.addEventListener('scroll', () => {
   if (window.pageYOffset > 300) {
     scrollTopBtn.classList.add('visible');
   } else {
