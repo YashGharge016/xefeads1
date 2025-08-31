@@ -1,0 +1,1241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>XafeAds — Policy Compliance</title>
+  <meta name="description" content="Audits, appeals, and policy‑safe fixes across Meta, Google, TikTok, and YouTube so you can scale ads without surprises.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<style>
+  :root { 
+    --blue:#2563EB; 
+    --blue-hover:#1D4ED8; 
+    --text:#475569; 
+    --ink:#0f172a; 
+    --card:#F8FAFC; 
+    --bg:#FFFFFF; 
+    --bg-alt:#F9FAFB; 
+    --whatsapp:#25D366; 
+  }
+
+  *{box-sizing:border-box; -webkit-font-smoothing: antialiased;}
+  body { 
+    margin:0; 
+    font-family: 'Poppins', sans-serif; 
+    color:var(--text); 
+    background:var(--bg); 
+    line-height:1.6;
+    font-size: 16px;
+  }
+  a { color: var(--blue); text-decoration:none }
+  a:hover { text-decoration:underline }
+  .container { max-width:1400px; margin:0 auto; padding:24px; }
+  .section { padding:80px 0; }
+  .section:nth-of-type(even) { background: var(--bg-alt); }
+  h1,h2,h3 { color:var(--ink); line-height:1.2; margin:0 0 20px; font-weight:700 }
+  h1 { font-size: clamp(38px, 6vw, 60px); margin-bottom: 20px; }
+  h2 { font-size: clamp(30px, 4vw, 42px); margin-bottom: 20px; }
+  h3 { font-size: clamp(24px, 3vw, 28px); margin-bottom: 12px; }
+  p { margin: 0 0 16px; }
+  
+  /* Buttons */
+  .btn { 
+    display:inline-block; 
+    background: linear-gradient(135deg,var(--blue),var(--blue-hover)); 
+    color:#fff; 
+    padding:12px 24px; /* Standardized padding */
+    line-height: 1.2; /* Standardized line-height */
+    border-radius:10px; 
+    font-weight:600; 
+    border: none; 
+    cursor:pointer; 
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: all .2s ease;
+    animation: pulse 1s infinite; /* Increased frequency */
+    text-transform: uppercase; 
+    letter-spacing: 0.04em;
+    position: relative; /* Needed for pseudo-element hover effect */
+    overflow: hidden; /* Hide overflow of pseudo-element */
+    z-index: 1;
+  }
+  .btn:hover { top: -2px; box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
+  .btn.outline { 
+    background: linear-gradient(135deg,var(--blue),var(--blue-hover)); 
+    color: #fff; 
+    border: none; 
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    padding: 12px 24px; /* Same padding as regular .btn */
+    line-height: 1.2; /* Standardized line-height */
+  }
+  .btn.outline:hover { top: -2px; box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
+
+  .btn.outline i { 
+    margin-right: 8px; 
+    font-size: 16px;
+    color: var(--blue);
+    display: inline-block;
+    vertical-align: middle;
+  } /* Space between icon and text */
+
+  @keyframes pulse { 
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); } 
+    50% { transform: scale(1.03); box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); } 
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); } 
+  }
+
+  /* Hover effect */
+  .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--blue-hover); /* Darker blue for hover */
+    transition: all .3s ease-in-out;
+    z-index: -1;
+  }
+
+  .btn:hover::before {
+    width: 100%;
+  }
+  
+  .btn.outline::before {
+    background: var(--blue); /* Solid blue for outline button hover */
+  }
+
+  .btn.outline:hover {
+    color: #fff; /* Ensure white text on hover for outline buttons */
+  }
+
+  .grid { display:grid; gap:28px }
+  .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) }
+     .card { 
+     background:#fff; 
+     border:1px solid #e5e7eb; 
+     border-radius:14px; 
+     padding:26px; 
+     box-shadow:0 2px 8px rgba(0,0,0,0.05); 
+     transition: all .2s ease;
+     display: flex;
+     flex-direction: column;
+     height: 100%;
+   }
+     .card:hover { transform: translateY(-4px); box-shadow:0 6px 18px rgba(0,0,0,0.1); }
+   
+   /* Ensure buttons are aligned at the bottom of cards */
+   .card .cta-group {
+     margin-top: auto;
+     padding-top: 20px;
+   }
+  
+  .proof { background: var(--card); padding:12px 20px; border-radius:999px; display:inline-flex; gap:16px; align-items:center; font-weight:600; margin:24px 0; font-size: 16px; }
+  .header { 
+    position: sticky; 
+    top:0; 
+    background: rgba(255,255,255,.95); 
+    backdrop-filter: blur(20px); 
+    border-bottom:1px solid rgba(229, 231, 235, 0.3); 
+    z-index:10; 
+    padding:16px 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+  }
+  
+  .header.scrolled {
+    background: rgba(255,255,255,.98);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    padding: 12px 0;
+  }
+  
+  .nav { 
+    display:flex; 
+    align-items:center; 
+    justify-content:space-between; 
+    padding:0 24px;
+    position: relative;
+  }
+  
+  .nav a { 
+    font-weight:600; 
+    color:var(--ink); 
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 8px 16px;
+    border-radius: 8px;
+  }
+  
+  .nav div:last-child a:not(.btn) { 
+    margin-left: 8px;
+    font-weight: 500;
+    font-size: 15px;
+  }
+  
+  .nav a:hover { 
+    color:var(--blue); 
+    text-decoration:none;
+    background: rgba(37, 99, 235, 0.08);
+    transform: translateY(-1px);
+  }
+  
+  .nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--blue);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+  
+  .nav a:hover::after {
+    width: 80%;
+  }
+  
+  /* Logo styling */
+  .nav .logo {
+    height: 60px;
+    width: auto;
+    display: block;
+  }
+  
+  /* Hamburger menu */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 8px;
+    background: none;
+    border: none;
+    z-index: 1000;
+  }
+  
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--ink);
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+  }
+  
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+  
+  /* Mobile navigation */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .nav {
+      justify-content: space-between;
+      padding: 0 16px;
+      position: relative;
+    }
+    
+    .nav .logo {
+      height: 50px;
+      margin: 0 auto;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .hamburger {
+      display: flex;
+      order: 3;
+    }
+    
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(8px);
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 80px 24px 24px;
+      transition: right 0.3s ease;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+      gap: 24px;
+    }
+    
+    .nav-links.active {
+      right: 0;
+    }
+    
+    .nav-links a {
+      font-size: 18px;
+      padding: 12px 0;
+      border-bottom: 1px solid #e5e7eb;
+      width: 100%;
+      text-align: left;
+    }
+    
+    .nav-links a:last-child {
+      border-bottom: none;
+    }
+    
+      .nav-links .btn {
+    margin: 16px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Enhanced navbar button styling */
+  .nav .btn {
+    background: linear-gradient(135deg, var(--blue), var(--blue-hover));
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nav .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .nav .btn:hover::before {
+    left: 100%;
+  }
+
+  .nav .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+  }
+  }
+  .hero { 
+    padding:80px 24px 50px; /* Add horizontal padding back to hero itself */
+    background: linear-gradient(135deg,rgba(0,0,0,0.5),rgba(0,0,0,0.7)), url('./images/banner.webp') center center / cover no-repeat; 
+    text-align:left;
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column on small screens */
+    gap: 30px;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr 500px; /* Adjusted column width for form */
+      text-align: left;
+      gap: 50px; 
+      align-items: start;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    .hero .content {
+      text-align: left;
+    }
+    .hero .form-container {
+      padding: 24px 28px;
+      width: 100%; 
+      max-width: 500px; /* Constrain form width on larger screens */
+      margin: 0;
+      align-self: center;
+    }
+  }
+
+  .hero h1 { margin-bottom:16px }
+  .hero .cta {
+    justify-content: flex-start; /* Align CTA buttons to the left within the content div */
+  }
+  .small { font-size: 15px; opacity:.8; }
+  .kicker { font-weight:700; color:var(--blue); letter-spacing:.06em; text-transform:uppercase; font-size:14px; margin-bottom:10px }
+  ul.clean { padding-left: 20px; margin: 0; }
+  ul.clean li { margin-bottom: 6px; }
+  
+  /* Sticky bar */
+  .sticky { 
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); 
+    width: min(100% - 32px, 1100px); 
+    background:#1f2937; 
+    color:#fff; 
+    padding:18px 24px; 
+    border-radius:16px; 
+    display:flex; 
+    gap:20px; 
+    align-items:center; 
+    justify-content:space-between; 
+    box-shadow:0 12px 36px rgba(0,0,0,0.3); 
+    font-size: 17px;
+  }
+  .sticky .btn { background:#fff; color: var(--ink); animation: none; }
+  .sticky .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+
+  /* Form */
+  label { display:block; font-weight:600; margin:6px 0 3px; /* Adjusted margin */ color:var(--ink); font-size: 13px; /* Adjusted font size */ }
+  input,select,textarea { width:100%; padding:7px; border:1px solid #cdd5e1; border-radius:6px; font: inherit; color:var(--ink); background:#fdfdfe; box-sizing: border-box; }
+  input:focus,select:focus,textarea:focus { outline:2px solid var(--blue); border-color: var(--blue); background:#fff; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15); }
+  .form-steps { display:grid; gap:12px } /* Adjusted gap */
+  .form-row { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:10px } /* Adjusted gap */
+  .chips { display:flex; flex-wrap:wrap; gap:6px }
+  .chips.platform-chips { flex-direction: column; gap: 8px; align-items: flex-start; }
+  .chips input { display:none }
+  .chips label { border:1px solid #cdd5e1; padding:7px 14px; border-radius:8px; cursor:pointer; background:#f0f4f8; transition: all .2s ease; font-weight:500; font-size: 12px; display: flex; align-items: center; gap: 8px; }
+  .chips label i { 
+    font-size: 18px; 
+    line-height: 1; 
+    color: var(--ink);
+    opacity: 1;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .chips input:checked + label { 
+    background: var(--blue); 
+    color:#fff; 
+    border-color:var(--blue); 
+    box-shadow: 0 2px 8px rgba(37,99,235,0.2); 
+  }
+  
+  .chips input:checked + label i {
+    color: #fff;
+    opacity: 1;
+  }
+
+  /* FAQ */
+  details.card { cursor:pointer; padding:18px 24px; }
+  details.card summary { font-weight:600; color:var(--ink); margin-bottom:8px; cursor:pointer; font-size: 17px; }
+  details.card[open] { border-left:5px solid var(--blue); }
+
+  /* Footer */
+  .footer { background:#0f172a; color:#a3b3cc; padding:40px 0; }
+  .footer a { color:#93c5fd; text-decoration: underline; }
+  .footer a:hover { color:#c0dfff; }
+  .footer .container { padding:40px 24px; text-align:center }
+  .footer p { margin:12px 0 }
+  .hidden { display:none !important }
+
+  @media (max-width: 768px) {
+    .nav a { margin-left: 12px; }
+    .hero { padding: 60px 0 30px; gap: 20px; }
+    .sticky { width: calc(100% - 24px); padding: 14px 18px; }
+    .sticky span { font-size: 15px; }
+    .proof { margin: 16px 0; padding: 10px 16px; font-size: 14px; gap: 10px; }
+    .section { padding: 50px 0; }
+
+    .form-row { grid-template-columns: 1fr; } 
+    .chips { justify-content: center; } 
+
+    .hero .content h1 {
+      font-size: clamp(32px, 8vw, 48px);
+    }
+    .hero .content p {
+      font-size: 15px;
+    }
+    .hero .content .cta {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .hero .form-container h2 {
+      font-size: clamp(20px, 5vw, 24px); 
+    }
+    .form-steps {
+      gap: 10px; 
+    }
+    .form-row {
+      gap: 8px; 
+    }
+    .chips label {
+      padding: 7px 14px; 
+      font-size: 12px; 
+    }
+    .hero {
+      background-position: top center; 
+    }
+  }
+
+  @media (max-width: 480px) {
+    .chips.platform-chips {
+      align-items: center; /* Center platform chips on very small screens */
+      width: 100%;
+    }
+    .chips.platform-chips label {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (prefers-reduced-motion:no-preference){ 
+    .btn,.chips label,.card { transition: all .2s ease } 
+  }
+
+  .sticky .btn { 
+    animation: none; 
+    box-shadow: none; 
+    transition: all .2s ease; 
+  }
+  .sticky .btn:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+  }
+
+  .hero .form-container {
+    background: var(--card);
+    padding: 20px 24px; /* Slightly increased vertical padding */
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .hero .form-container h2, .hero .form-container p {
+    text-align: center;
+    margin-bottom: 4px; 
+    font-size: clamp(18px, 4vw, 22px); 
+  }
+
+  .hero .form-container p {
+    margin-bottom: 8px; 
+    font-size: 14px;
+  }
+
+  .hero .form-container h3 {
+    font-size: clamp(18px, 3vw, 20px);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .hero .form-container .form-steps {
+    gap: 16px;
+  }
+
+  .hero .form-container .form-row {
+    gap: 12px;
+  }
+
+  .hero .form-container .chips label {
+    padding: 10px 16px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+
+  .hero .form-container .chips.platform-chips label {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  @media (min-width: 900px) {
+    .hero .form-container {
+      padding: 24px 28px; /* Slightly increased vertical padding for large screens */
+    }
+    .hero .form-container h2 {
+      font-size: clamp(22px, 3vw, 26px);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .hero .form-container h2 {
+      font-size: clamp(20px, 5vw, 24px); /* Adjusted for small screens */
+    }
+    .form-steps {
+      gap: 10px; 
+    }
+    .form-row {
+      gap: 8px; 
+    }
+    .chips label {
+      padding: 7px 14px; 
+      font-size: 12px; 
+    }
+    .hero {
+      background-position: top center; 
+    }
+  }
+
+  .hero .content {
+    text-align: left;
+    color: #fff; /* White text for better contrast */
+    text-shadow: none;
+  }
+
+  .hero .content h1 {
+    margin-bottom: 16px;
+    color: #fff; /* White text for better contrast */
+    text-shadow: none;
+  }
+  
+  .hero .content p {
+    margin-bottom: 20px;
+    color: #fff; /* White text for better contrast */
+    text-shadow: none;
+  }
+
+  .hero .content .proof {
+    margin: 20px 0;
+    background: rgba(255,255,255,0.9); /* Lighter, more opaque background for visibility */
+    color: var(--ink); /* Dark text for contrast against light proof bar */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  .hero .content .cta {
+    margin-top: 24px; /* Slightly reduced margin-top */
+    display: flex;
+    gap: 12px; /* Reduced gap between buttons */
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Align CTA buttons to the left within the content div */
+  }
+
+  /* Global button alignment for various contexts */
+  .cta-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center; /* Default to center alignment for generic CTA groups */
+  }
+
+  .cta-group.align-left {
+    justify-content: flex-start;
+  }
+
+  .cta-group.align-right {
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      padding: 60px 24px 30px; 
+      gap: 30px;
+      grid-template-columns: 1fr; 
+      min-height: auto; /* Remove min-height constraint on mobile */
+      align-items: center;
+    }
+    .hero .content {
+      text-align: center; 
+    }
+    .hero .cta {
+      justify-content: center; 
+    }
+    .hero .form-container {
+      padding: 20px; /* Adjusted padding for small screens */
+      max-width: 100%; 
+      margin: 0; 
+      align-self: center;
+    }
+    .hero .form-container h2 {
+      font-size: clamp(22px, 5vw, 26px); /* Adjusted font size for small screens */
+    }
+    .form-steps {
+      gap: 16px; /* Adjusted gap for small screens */
+    }
+    .form-row {
+      gap: 10px; /* Adjusted gap for small screens */
+      grid-template-columns: 1fr; /* Stack form rows on small screens */
+    }
+    .chips label {
+      padding: 8px 14px; /* Adjusted padding for small screens */
+      font-size: 13px; /* Adjusted font size for small screens */
+    }
+    .hero {
+      background-position: top center; 
+    }
+  }
+
+  /* Hero section responsive layout */
+  @media (max-width: 1200px) {
+    .hero {
+      gap: 40px;
+    }
+    .hero .form-container {
+      max-width: 450px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 50px 20px 30px;
+      gap: 25px;
+    }
+    .hero .form-container {
+      padding: 18px 20px;
+    }
+    .hero .content h1 {
+      font-size: clamp(32px, 8vw, 48px);
+    }
+    .hero .content p {
+      font-size: 15px;
+    }
+    .hero .content .cta {
+      justify-content: center;
+      gap: 10px;
+    }
+    .hero .content .cta .btn {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero {
+      padding: 40px 16px 25px;
+      gap: 20px;
+    }
+    .hero .form-container {
+      padding: 16px 18px;
+    }
+    .hero .content .cta {
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero .content .cta .btn {
+      width: 100%;
+      max-width: 280px;
+    }
+    .chips.platform-chips {
+      align-items: center; /* Center platform chips on very small screens */
+      width: 100%;
+    }
+    .chips.platform-chips label {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+    /* Better responsive container and sections */
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+    }
+    .section {
+      padding: 60px 0;
+    }
+  }
+   
+  @media (max-width: 480px) {
+    .container {
+      padding: 16px;
+    }
+    .section {
+      padding: 40px 0;
+    }
+  }
+
+  /* Floating Action Buttons */
+  .fab-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 1000;
+  }
+
+  .fab {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    font-size: 20px;
+    color: white;
+  }
+
+  .fab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  }
+
+  .fab.scroll-top {
+    background: #1f2937;
+  }
+
+  .fab.whatsapp {
+    background: #25D366;
+  }
+
+  /* Ensure WhatsApp icon in button is clearly visible */
+  .btn.outline .fa-whatsapp {
+    font-size: 18px;
+    color: var(--blue);
+    opacity: 1;
+    text-shadow: none;
+  }
+
+  .btn.outline:hover .fa-whatsapp {
+    color: #fff;
+  }
+
+  /* Fallback for Font Awesome icons */
+  .fab.fa-facebook::before { content: "f"; }
+  .fab.fa-google::before { content: "G"; }
+  .fab.fa-tiktok::before { content: "T"; }
+  .fab.fa-youtube::before { content: "▶"; }
+  .fab.fa-whatsapp::before { content: "💬"; }
+</style>
+
+</head>
+<body>
+<header class="header" role="banner">
+  <nav class="nav container" aria-label="Primary">
+    <img src="./images/logo.png" alt="XafeAds Logo" class="logo">
+    
+    <div class="nav-links">
+      <a href="#why">Why Us</a>
+      <a href="#services">What We Fix</a>
+      <a href="#process">Process</a>
+      <a href="#plans">Plans</a>
+      <a href="#faq">FAQ</a>
+      <a href="#intake" class="btn" role="button">Get My Account Reviewed</a>
+    </div>
+    
+    <button class="hamburger" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <div class="content">
+      <p class="kicker">Policy Compliance</p>
+      <h1 id="hero-title">Get Unbanned &amp; Policy-Safe—Fast</h1>
+      <p>We audit, appeal, and fix ad policy issues across <strong>Meta, Google, TikTok, and YouTube</strong> so you can scale without surprises.</p>
+      <div class="proof" aria-label="Proof bar">★ 4.9/5 avg rating <span>•</span> 18 partner agencies <span>•</span> Multi‑platform expertise</div>
+      <div class="cta cta-group align-left">
+        <a class="btn" href="#intake">Get My Account Reviewed</a>
+        <a class="btn" href="#book">Schedule a Compliance Consultation</a>
+      </div>
+      <p class="small">No lock-ins. No templates. Platform‑specific playbooks.</p>
+    </div>
+    
+    <div class="form-container">
+      <h2 style="margin-bottom:20px;">Tell Us Your Issue—Get a Priority Review Today</h2>
+      <p style="margin-bottom:30px;">Answer two quick steps so we can route you to the right policy specialist.</p>
+      <form id="leadForm" class="form-steps" method="post" action="#" data-event="Lead">
+        <div id="step1">
+          <h3>Step 1: Choose your platform &amp; issue</h3>
+          <div class="form-row">
+            <div>
+              <label>Platform</label>
+                             <div class="chips platform-chips" role="group" aria-label="Platform">
+                 <input type="radio" name="platform" id="plat-meta" value="Meta" required><label for="plat-meta">Meta</label>
+                 <input type="radio" name="platform" id="plat-google" value="Google"><label for="plat-google">Google</label>
+                 <input type="radio" name="platform" id="plat-tiktok" value="TikTok"><label for="plat-tiktok">TikTok</label>
+                 <input type="radio" name="platform" id="plat-youtube" value="YouTube"><label for="plat-youtube">YouTube</label>
+               </div>
+            </div>
+            <div>
+              <label>Issue</label>
+              <div class="chips" role="group" aria-label="Issue">
+                <input type="radio" name="issue" id="issue-suspension" value="Account suspension" required><label for="issue-suspension">Account suspension</label>
+                <input type="radio" name="issue" id="issue-disapproved" value="Disapproved ads"><label for="issue-disapproved">Disapproved ads</label>
+                <input type="radio" name="issue" id="issue-restricted" value="Restricted reach"><label for="issue-restricted">Restricted reach</label>
+                <input type="radio" name="issue" id="issue-flags" value="Repeated policy flags"><label for="issue-flags">Repeated policy flags</label>
+                <input type="radio" name="issue" id="issue-other" value="Other"><label for="issue-other">Other</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="step2" class="hidden">
+          <h3 style="margin-bottom:10px;">Step 2: Share your details</h3>
+          <div class="form-row">
+            <div>
+              <label for="name">Full name</label>
+              <input id="name" name="name" required>
+            </div>
+            <div>
+              <label for="email">Work email</label>
+              <input id="email" name="email" type="email" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="phone">Phone / WhatsApp (optional)</label>
+              <input id="phone" name="phone" inputmode="tel" placeholder="+91…">
+            </div>
+            <div>
+              <label for="url">Website / App URL</label>
+              <input id="url" name="url" type="url" required placeholder="https://">
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="spend">Monthly ad spend</label>
+              <select id="spend" name="spend" required>
+                <option value="">Select…</option>
+                <option>&lt; ₹1L</option>
+                <option>₹1–5L</option>
+                <option>₹5L+</option>
+              </select>
+            </div>
+            <div>
+              <label for="notes">Notes (optional)</label>
+              <textarea id="notes" name="notes" rows="3" placeholder="Anything we should know?"></textarea>
+            </div>
+          </div>
+          <label class="small" style="margin-top:6px; display: flex; align-items: center;" ><input type="checkbox" required style="margin-right: 8px; flex-shrink: 0; width: 16px; height: 16px; display: inline-block;"> I agree to the <a href="#privacy">Privacy Policy</a>.</label>
+        </div>
+
+                 <div style="margin-top:20px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+           <button id="backBtn" class="btn outline hidden" type="button" style="flex-shrink: 0;">← Back</button>
+           <button id="nextBtn" class="btn" type="button">Continue</button>
+           <button id="submitBtn" class="btn hidden" type="submit">Get My Account Reviewed</button>
+           <a class="btn outline" href="https://wa.me/YOURNUMBER?text=Hi%20XafeAds%2C%20I%20need%20help%20with%20a%20policy%20issue." target="_blank" rel="noopener">Prefer WhatsApp?</a>
+         </div>
+        <!-- Hidden UTM fields for CRM -->
+        <input type="hidden" name="utm_source">
+        <input type="hidden" name="utm_medium">
+        <input type="hidden" name="utm_campaign">
+        <input type="hidden" name="utm_content">
+        <input type="hidden" name="utm_term">
+      </form>
+      <p class="small" id="sla">Thanks! A compliance specialist will reply within <strong>24–48 hours</strong> with your risk assessment and next steps.</p>
+    </div>
+  </section>
+
+  <section class="section" id="who" aria-labelledby="who-title">
+    <div class="container">
+      <h2 id="who-title">Who We’re Best For</h2>
+      <p>If you’re serious about paid growth and can’t afford downtime, you’re in the right place.</p>
+      <ul class="clean">
+        <li>DTC &amp; Lead‑gen brands spending <strong>₹1L–₹50L+/mo</strong></li>
+        <li>Agencies handling <strong>multiple client accounts</strong></li>
+        <li>Apps/fintech/health/education with <strong>strict policy categories</strong></li>
+        <li>Teams needing <strong>rapid reinstatement</strong> and ongoing compliance</li>
+      </ul>
+      <p><div class="cta-group"><a class="btn" href="#intake">Check My Fit</a></div></p>
+    </div>
+  </section>
+
+  <section class="section" id="why-flags" aria-labelledby="why-flags-title">
+    <div class="container">
+      <h2 id="why-flags-title">Why Good Accounts Get Flagged</h2>
+      <div class="grid grid-3">
+        <div class="card"><strong>Mismatched claims</strong> between ads and landing pages</div>
+        <div class="card"><strong>Hidden or missing policies</strong> (privacy, terms, disclaimers)</div>
+        <div class="card"><strong>Restricted categories</strong> (health, finance, crypto, housing, jobs)</div>
+        <div class="card"><strong>Behavioral patterns</strong>: too many edits, aggressive scaling, repeated appeals</div>
+        <div class="card"><strong>Low‑quality signals</strong>: thin pages, unclear business info</div>
+      </div>
+      <p style="margin-top:16px;"><div class="cta-group"><a class="btn" href="#intake">Run a Free Policy Check</a></div></p>
+    </div>
+  </section>
+
+  <section class="section" id="services" aria-labelledby="services-title">
+    <div class="container">
+      <h2 id="services-title">What We Fix—End‑to‑End</h2>
+      <div class="grid grid-3">
+        <div class="card"><h3>Account Suspensions</h3><p>Root‑cause analysis, appeal strategy, documentation.</p></div>
+        <div class="card"><h3>Ad Disapprovals</h3><p>Policy‑safe rewrites, creative &amp; copy review.</p></div>
+        <div class="card"><h3>Landing Page Compliance</h3><p>Policies, disclaimers, message‑match.</p></div>
+        <div class="card"><h3>Pre‑Launch Audits</h3><p>Risk scoring, checklists, fix‑list before scaling.</p></div>
+        <div class="card"><h3>Monitoring &amp; Training</h3><p>Ongoing checks, SOPs, team enablement.</p></div>
+      </div>
+      <p style="margin-top:16px;"><div class="cta-group"><a class="btn" href="#intake">Start My Audit</a></div></p>
+    </div>
+  </section>
+
+  <section class="section" id="process" aria-labelledby="process-title">
+    <div class="container">
+      <h2 id="process-title">Our Process (Built for Speed &amp; Safety)</h2>
+      <ol>
+        <li><strong>Intake &amp; Triage (24–48h):</strong> We review platforms, assets, and history.</li>
+        <li><strong>Policy‑Safe Fix Plan:</strong> Clear steps for ads, pages, and appeals.</li>
+        <li><strong>Appeals &amp; Edits:</strong> We prepare platform‑specific submissions.</li>
+        <li><strong>Stabilize &amp; Monitor:</strong> Post‑reinstatement checks to avoid relapses.</li>
+      </ol>
+      <p><div class="cta-group"><a class="btn" href="#intake">Get Started Now</a></div></p>
+    </div>
+  </section>
+
+  <section class="section" id="results" aria-labelledby="results-title">
+    <div class="container">
+      <h2 id="results-title">Outcomes That Matter</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>DTC Skincare, Meta Suspension</h3>
+          <p>Reinstated in 9 days after claim rewrites &amp; LP fixes. Scaled to 2.2x pre‑ban spend within 3 weeks.</p>
+          <p><a href="#" aria-label="View DTC Skincare case summary">View summary →</a></p>
+        </article>
+        <article class="card">
+          <h3>Lead‑Gen Fintech, Google Disapprovals</h3>
+          <p>83% approval rate on new creatives via policy‑safe messaging framework.</p>
+        </article>
+        <article class="card">
+          <h3>Agency Roll‑Out (Multi‑Client)</h3>
+          <p>Created SOPs that reduced disapprovals by 41% across 6 accounts in 30 days.</p>
+        </article>
+      </div>
+      <p style="margin-top:16px;"><div class="cta-group"><a class="btn" href="#intake">See If Your Case Is Similar</a></div></p>
+    </div>
+  </section>
+
+  <section class="section" id="plans" aria-labelledby="plans-title">
+    <div class="container">
+      <h2 id="plans-title">Choose the Help You Need</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Rapid Reinstatement Pack</h3>
+          <p class="small">One‑time</p>
+          <ul class="clean">
+            <li>Triage &amp; root‑cause report</li>
+            <li>Appeal prep &amp; submission guidance</li>
+            <li>Policy‑safe ad &amp; LP edits</li>
+            <li>14‑day post‑reinstatement monitoring</li>
+          </ul>
+          <p><div class="cta-group"><a class="btn" href="#intake">Fix My Account</a></div></p>
+        </div>
+        <div class="card">
+          <h3>Compliance On‑Call</h3>
+          <p class="small">Monthly</p>
+          <ul class="clean">
+            <li>Pre‑launch audits (unlimited per month)</li>
+            <li>Ongoing ad &amp; LP reviews</li>
+            <li>Quarterly training/SOP refresh</li>
+            <li>Priority response &amp; monitoring</li>
+          </ul>
+          <p><div class="cta-group"><a class="btn" href="#book">Talk to Compliance</a></div></p>
+        </div>
+        <div class="card">
+          <h3>Agency Program</h3>
+          <p class="small">Custom</p>
+          <ul class="clean">
+            <li>Shared SOPs, templates, live support</li>
+            <li>Batch reviews &amp; white‑label reporting</li>
+          </ul>
+          <p><div class="cta-group"><a class="btn" href="#book">Discuss Agency Needs</a></div></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="why" aria-labelledby="why-title">
+    <div class="container">
+      <h2 id="why-title">Why Teams Choose XafeAds</h2>
+      <div class="grid grid-3">
+        <div class="card"><strong>Platform‑Specific Playbooks</strong><p>Not generic “best practices.”</p></div>
+        <div class="card"><strong>Fast Triage</strong><p>24–48h initial review windows.</p></div>
+        <div class="card"><strong>Hands‑On Edits</strong><p>We rewrite copy and fix pages—not just advise.</p></div>
+        <div class="card"><strong>Teach‑and‑Transfer</strong><p>SOPs your team can actually run.</p></div>
+        <div class="card"><strong>No Fluff, No Guarantees</strong><p>Realistic timelines, honest outcomes.</p></div>
+      </div>
+      <p style="margin-top:16px;"><div class="cta-group"><a class="btn" href="#book">Book a Consultation</a></div></p>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <h2 id="faq-title">Frequently Asked (and Honest)</h2>
+      <details class="card"><summary><strong>Can you guarantee reinstatement?</strong></summary><p>No. No one can. We improve your odds with platform‑specific appeals and policy‑safe creative/LP fixes.</p></details>
+      <details class="card"><summary><strong>How long does it take?</strong></summary><p>Depends on platform queues and violation type. We typically see movement within days to weeks.</p></details>
+      <details class="card"><summary><strong>Do you work with restricted categories?</strong></summary><p>Yes—within policy. We’ll adjust messaging and disclosures to meet platform rules.</p></details>
+      <details class="card"><summary><strong>Can you manage our ads post‑recovery?</strong></summary><p>Yes. Our Compliance On‑Call plan includes ongoing reviews while you scale.</p></details>
+      <details class="card"><summary><strong>What access do you need?</strong></summary><p>Read‑only or collaborator access to ad accounts, pages, and landing pages—plus recent appeal history if any.</p></details>
+      <p><div class="cta-group"><a class="btn outline" href="https://wa.me/YOURNUMBER?text=Hi%20XafeAds%2C%20I%20have%20a%20question%20about%20compliance." target="_blank" rel="noopener">Still have a question? Chat on WhatsApp</a></div></p>
+    </div>
+  </section>
+
+  <section class="section" id="lead-magnet" aria-labelledby="leadmag-title">
+    <div class="container">
+      <h2 id="leadmag-title">Free Policy Risk Checklist (PDF)</h2>
+      <p>Spot the top 20 reasons ads get disapproved—before you launch or re‑appeal.</p>
+      <p><div class="cta-group"><a class="btn" href="#intake">Email Me the Checklist</a></div></p>
+    </div>
+  </section>
+
+  <section class="section" id="book" aria-labelledby="book-title">
+    <div class="container">
+      <h2 id="book-title">Schedule a Compliance Consultation</h2>
+      <p>Add your Calendly/Cal.com embed here.</p>
+      <p><div class="cta-group"><a class="btn" href="#intake">Get My Account Reviewed</a></div></p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="footer" role="contentinfo">
+  <div class="container">
+    <p><strong>XafeAds</strong> · Navi Mumbai, India · <a href="mailto:info@xafeads.com">info@xafeads.com</a></p>
+    <p><a id="privacy" href="#">Privacy Policy</a> · <a href="#">Terms</a> · <a href="#">Disclaimer</a> · <a href="https://wa.me/YOURNUMBER" target="_blank" rel="noopener">Chat on WhatsApp</a></p>
+    <p class="small">XafeAds provides independent advisory services and is not affiliated with Meta, Google, TikTok, or YouTube.</p>
+    <p class="small">© <span id="year"></span> XafeAds. All rights reserved.</p>
+  </div>
+  </footer>
+
+  <!-- Floating Action Buttons -->
+  <div class="fab-container">
+    <button class="fab scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="https://wa.me/YOURNUMBER?text=Hi%20XafeAds%2C%20I%20need%20help%20with%20a%20policy%20issue." 
+       class="fab whatsapp" 
+       target="_blank" 
+       rel="noopener" 
+       aria-label="Chat on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+ 
+
+ <script>
+  // Simple 2-step form logic
+  const nextBtn = document.getElementById('nextBtn');
+  const submitBtn = document.getElementById('submitBtn');
+  const backBtn = document.getElementById('backBtn'); // Get the new back button
+  const step2 = document.getElementById('step2');
+  const step1 = document.getElementById('step1'); // Get the new step1 div
+  const form = document.getElementById('leadForm');
+  const year = document.getElementById('year');
+  if (year) year.textContent = new Date().getFullYear();
+
+  nextBtn?.addEventListener('click', () => {
+    const platform = form.querySelector('input[name="platform"]:checked');
+    const issue = form.querySelector('input[name="issue"]:checked');
+    if (!platform || !issue) {
+      alert('Please select a platform and an issue to continue.');
+      return;
+    }
+    step1.classList.add('hidden'); // Hide Step 1
+    step2.classList.remove('hidden');
+    nextBtn.classList.add('hidden');
+    submitBtn.classList.remove('hidden');
+    backBtn.classList.remove('hidden'); // Show the back button
+    step2.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  backBtn?.addEventListener('click', () => {
+    step1.classList.remove('hidden'); // Show Step 1
+    step2.classList.add('hidden');
+    nextBtn.classList.remove('hidden');
+    submitBtn.classList.add('hidden');
+    backBtn.classList.add('hidden'); // Hide the back button
+    step1.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  // Hamburger menu functionality
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  const navLinksItems = document.querySelectorAll('.nav-links a');
+
+  hamburger?.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+
+  // Close menu when clicking on a link
+  navLinksItems.forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+    }
+  });
+
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        const headerHeight = document.querySelector('.header').offsetHeight;
+        const targetPosition = target.offsetTop - headerHeight - 20;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Header scroll effect
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 100) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // UTM capture into hidden fields
+  const params = new URLSearchParams(window.location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(key=>{
+    const el = form.querySelector(`input[name="${key}"]`);
+    if(el && params.get(key)) el.value = params.get(key);
+  });
+
+  // Placeholder submit handler (replace action with your endpoint/GHL form)
+  form?.addEventListener('submit', (e) => {
+    // TODO: integrate with your form endpoint or GHL form action
+    // e.preventDefault(); // remove once wired
+  });
+
+  // Scroll to top functionality
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  
+  // Show/hide scroll button based on scroll position
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      scrollTopBtn.style.display = 'flex';
+    } else {
+      scrollTopBtn.style.display = 'none';
+    }
+  });
+
+  // Scroll to top when button is clicked
+  scrollTopBtn?.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // Initially hide scroll button
+  scrollTopBtn.style.display = 'none';
+</script>
+</body>
+</html>
