@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
   :root { 
     --blue:#2563EB; 
@@ -63,22 +63,16 @@
   }
   .btn:hover { top: -2px; box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
   .btn.outline { 
-    background: linear-gradient(135deg,var(--blue),var(--blue-hover)); 
-    color: #fff; 
-    border: none; 
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    padding: 12px 24px; /* Same padding as regular .btn */
+    background: transparent; 
+    color: var(--blue); 
+    border:2px solid var(--blue); 
+    box-shadow:none; 
+    padding: 10px 22px; /* Standardized padding for outline button (2px less on each side for border) */
     line-height: 1.2; /* Standardized line-height */
   }
-  .btn.outline:hover { top: -2px; box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
+  .btn.outline:hover { top: -2px; background: var(--blue); color:#fff; box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
 
-  .btn.outline i { 
-    margin-right: 8px; 
-    font-size: 16px;
-    color: var(--blue);
-    display: inline-block;
-    vertical-align: middle;
-  } /* Space between icon and text */
+  .btn.outline i { margin-right: 8px; } /* Space between icon and text */
 
   @keyframes pulse { 
     0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); } 
@@ -113,89 +107,22 @@
 
   .grid { display:grid; gap:28px }
   .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) }
-     .card { 
-     background:#fff; 
-     border:1px solid #e5e7eb; 
-     border-radius:14px; 
-     padding:26px; 
-     box-shadow:0 2px 8px rgba(0,0,0,0.05); 
-     transition: all .2s ease;
-     display: flex;
-     flex-direction: column;
-     height: 100%;
-   }
-     .card:hover { transform: translateY(-4px); box-shadow:0 6px 18px rgba(0,0,0,0.1); }
-   
-   /* Ensure buttons are aligned at the bottom of cards */
-   .card .cta-group {
-     margin-top: auto;
-     padding-top: 20px;
-   }
+  .card { 
+    background:#fff; 
+    border:1px solid #e5e7eb; 
+    border-radius:14px; 
+    padding:26px; 
+    box-shadow:0 2px 8px rgba(0,0,0,0.05); 
+    transition: all .2s ease;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow:0 6px 18px rgba(0,0,0,0.1); }
   
   .proof { background: var(--card); padding:12px 20px; border-radius:999px; display:inline-flex; gap:16px; align-items:center; font-weight:600; margin:24px 0; font-size: 16px; }
-  .header { 
-    position: sticky; 
-    top:0; 
-    background: rgba(255,255,255,.95); 
-    backdrop-filter: blur(20px); 
-    border-bottom:1px solid rgba(229, 231, 235, 0.3); 
-    z-index:10; 
-    padding:16px 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-  }
-  
-  .header.scrolled {
-    background: rgba(255,255,255,.98);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    padding: 12px 0;
-  }
-  
-  .nav { 
-    display:flex; 
-    align-items:center; 
-    justify-content:space-between; 
-    padding:0 24px;
-    position: relative;
-  }
-  
-  .nav a { 
-    font-weight:600; 
-    color:var(--ink); 
-    transition: all 0.3s ease;
-    position: relative;
-    padding: 8px 16px;
-    border-radius: 8px;
-  }
-  
-  .nav div:last-child a:not(.btn) { 
-    margin-left: 8px;
-    font-weight: 500;
-    font-size: 15px;
-  }
-  
-  .nav a:hover { 
-    color:var(--blue); 
-    text-decoration:none;
-    background: rgba(37, 99, 235, 0.08);
-    transform: translateY(-1px);
-  }
-  
-  .nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: var(--blue);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-  }
-  
-  .nav a:hover::after {
-    width: 80%;
-  }
+  .header { position: sticky; top:0; background: rgba(255,255,255,.98); backdrop-filter: blur(8px); border-bottom:1px solid #e5e7eb; z-index:10; padding:12px 0; }
+  .nav { display:flex; align-items:center; justify-content:space-between; padding:0 24px }
+  .nav a { font-weight:600; color:var(--ink); transition: color .2s ease; }
+  .nav div:last-child a:not(.btn) { margin-left: 20px; } /* Apply margin only to non-button links */
+  .nav a:hover { color:var(--blue); text-decoration:none; }
   
   /* Logo styling */
   .nav .logo {
@@ -295,47 +222,11 @@
       border-bottom: none;
     }
     
-      .nav-links .btn {
-    margin: 16px 0;
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Enhanced navbar button styling */
-  .nav .btn {
-    background: linear-gradient(135deg, var(--blue), var(--blue-hover));
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-    transition: all 0.3s ease;
-    border: none;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .nav .btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s ease;
-  }
-
-  .nav .btn:hover::before {
-    left: 100%;
-  }
-
-  .nav .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
-  }
+    .nav-links .btn {
+      margin: 16px 0;
+      width: 100%;
+      text-align: center;
+    }
   }
   .hero { 
     padding:80px 24px 50px; /* Add horizontal padding back to hero itself */
@@ -352,19 +243,16 @@
       grid-template-columns: 1fr 500px; /* Adjusted column width for form */
       text-align: left;
       gap: 50px; 
-      align-items: start;
-      padding-top: 80px;
-      padding-bottom: 80px;
     }
     .hero .content {
       text-align: left;
     }
     .hero .form-container {
-      padding: 24px 28px;
+      padding-left: 0; 
       width: 100%; 
       max-width: 500px; /* Constrain form width on larger screens */
-      margin: 0;
-      align-self: center;
+      margin-left: auto; 
+      margin-right: auto;
     }
   }
 
@@ -405,25 +293,8 @@
   .chips.platform-chips { flex-direction: column; gap: 8px; align-items: flex-start; }
   .chips input { display:none }
   .chips label { border:1px solid #cdd5e1; padding:7px 14px; border-radius:8px; cursor:pointer; background:#f0f4f8; transition: all .2s ease; font-weight:500; font-size: 12px; display: flex; align-items: center; gap: 8px; }
-  .chips label i { 
-    font-size: 18px; 
-    line-height: 1; 
-    color: var(--ink);
-    opacity: 1;
-    display: inline-block;
-    vertical-align: middle;
-  }
-  .chips input:checked + label { 
-    background: var(--blue); 
-    color:#fff; 
-    border-color:var(--blue); 
-    box-shadow: 0 2px 8px rgba(37,99,235,0.2); 
-  }
-  
-  .chips input:checked + label i {
-    color: #fff;
-    opacity: 1;
-  }
+  .chips label i { font-size: 18px; /* Adjusted font size for icons */ line-height: 1; }
+  .chips input:checked + label { background: var(--blue); color:#fff; border-color:var(--blue); box-shadow: 0 2px 8px rgba(37,99,235,0.2); }
 
   /* FAQ */
   details.card { cursor:pointer; padding:18px 24px; }
@@ -510,8 +381,6 @@
     border-radius: 16px;
     border: none;
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    max-width: 500px;
-    margin: 0 auto;
   }
 
   .hero .form-container h2, .hero .form-container p {
@@ -523,31 +392,6 @@
   .hero .form-container p {
     margin-bottom: 8px; 
     font-size: 14px;
-  }
-
-  .hero .form-container h3 {
-    font-size: clamp(18px, 3vw, 20px);
-    margin-bottom: 16px;
-    text-align: center;
-  }
-
-  .hero .form-container .form-steps {
-    gap: 16px;
-  }
-
-  .hero .form-container .form-row {
-    gap: 12px;
-  }
-
-  .hero .form-container .chips label {
-    padding: 10px 16px;
-    font-size: 13px;
-    border-radius: 8px;
-  }
-
-  .hero .form-container .chips.platform-chips label {
-    width: 100%;
-    justify-content: flex-start;
   }
 
   @media (min-width: 900px) {
@@ -634,7 +478,6 @@
       gap: 30px;
       grid-template-columns: 1fr; 
       min-height: auto; /* Remove min-height constraint on mobile */
-      align-items: center;
     }
     .hero .content {
       text-align: center; 
@@ -646,7 +489,6 @@
       padding: 20px; /* Adjusted padding for small screens */
       max-width: 100%; 
       margin: 0; 
-      align-self: center;
     }
     .hero .form-container h2 {
       font-size: clamp(22px, 5vw, 26px); /* Adjusted font size for small screens */
@@ -786,24 +628,62 @@
     background: #25D366;
   }
 
-  /* Ensure WhatsApp icon in button is clearly visible */
-  .btn.outline .fa-whatsapp {
-    font-size: 18px;
-    color: var(--blue);
-    opacity: 1;
-    text-shadow: none;
+  /* Mobile Sticky Footer */
+  .mobile-sticky-footer {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #1f2937;
+    padding: 16px 20px;
+    z-index: 999;
+    border-top: 1px solid #374151;
   }
 
-  .btn.outline:hover .fa-whatsapp {
-    color: #fff;
+  .mobile-sticky-footer .footer-buttons {
+    display: flex;
+    gap: 1px;
+    background: #374151;
+    border-radius: 8px;
+    overflow: hidden;
   }
 
-  /* Fallback for Font Awesome icons */
-  .fab.fa-facebook::before { content: "f"; }
-  .fab.fa-google::before { content: "G"; }
-  .fab.fa-tiktok::before { content: "T"; }
-  .fab.fa-youtube::before { content: "▶"; }
-  .fab.fa-whatsapp::before { content: "💬"; }
+  .mobile-sticky-footer .footer-btn {
+    flex: 1;
+    background: #1f2937;
+    color: white;
+    border: none;
+    padding: 14px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .mobile-sticky-footer .footer-btn:hover {
+    background: #374151;
+  }
+
+  .mobile-sticky-footer .footer-btn:first-child {
+    border-radius: 8px 0 0 8px;
+  }
+
+  .mobile-sticky-footer .footer-btn:last-child {
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* Show mobile footer only on mobile */
+  @media (max-width: 768px) {
+    .mobile-sticky-footer {
+      display: block;
+    }
+    
+    /* Adjust FAB position to avoid overlap with mobile footer */
+    .fab-container {
+      bottom: 90px;
+    }
+  }
 </style>
 
 </head>
@@ -852,12 +732,12 @@
           <div class="form-row">
             <div>
               <label>Platform</label>
-                             <div class="chips platform-chips" role="group" aria-label="Platform">
-                 <input type="radio" name="platform" id="plat-meta" value="Meta" required><label for="plat-meta">Meta</label>
-                 <input type="radio" name="platform" id="plat-google" value="Google"><label for="plat-google">Google</label>
-                 <input type="radio" name="platform" id="plat-tiktok" value="TikTok"><label for="plat-tiktok">TikTok</label>
-                 <input type="radio" name="platform" id="plat-youtube" value="YouTube"><label for="plat-youtube">YouTube</label>
-               </div>
+              <div class="chips platform-chips" role="group" aria-label="Platform">
+                <input type="radio" name="platform" id="plat-meta" value="Meta" required><label for="plat-meta"><i class="fab fa-facebook"></i>Meta</label>
+                <input type="radio" name="platform" id="plat-google" value="Google"><label for="plat-google"><i class="fab fa-google"></i>Google</label>
+                <input type="radio" name="platform" id="plat-tiktok" value="TikTok"><label for="plat-tiktok"><i class="fab fa-tiktok"></i>TikTok</label>
+                <input type="radio" name="platform" id="plat-youtube" value="YouTube"><label for="plat-youtube"><i class="fab fa-youtube"></i>YouTube</label>
+              </div>
             </div>
             <div>
               <label>Issue</label>
@@ -912,12 +792,12 @@
           <label class="small" style="margin-top:6px; display: flex; align-items: center;" ><input type="checkbox" required style="margin-right: 8px; flex-shrink: 0; width: 16px; height: 16px; display: inline-block;"> I agree to the <a href="#privacy">Privacy Policy</a>.</label>
         </div>
 
-                 <div style="margin-top:20px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
-           <button id="backBtn" class="btn outline hidden" type="button" style="flex-shrink: 0;">← Back</button>
-           <button id="nextBtn" class="btn" type="button">Continue</button>
-           <button id="submitBtn" class="btn hidden" type="submit">Get My Account Reviewed</button>
-           <a class="btn outline" href="https://wa.me/YOURNUMBER?text=Hi%20XafeAds%2C%20I%20need%20help%20with%20a%20policy%20issue." target="_blank" rel="noopener">Prefer WhatsApp?</a>
-         </div>
+        <div style="margin-top:20px; display: flex; align-items: center; gap: 16px;">
+          <button id="backBtn" class="btn outline hidden" type="button" style="flex-shrink: 0;">← Back</button>
+          <button id="nextBtn" class="btn" type="button">Continue</button>
+          <button id="submitBtn" class="btn hidden" type="submit">Get My Account Reviewed</button>
+          <a class="btn outline" href="https://wa.me/YOURNUMBER?text=Hi%20XafeAds%2C%20I%20need%20help%20with%20a%20policy%20issue." target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Prefer WhatsApp?</a>
+        </div>
         <!-- Hidden UTM fields for CRM -->
         <input type="hidden" name="utm_source">
         <input type="hidden" name="utm_medium">
@@ -1111,8 +991,15 @@
     </a>
   </div>
 
- 
+  <!-- Mobile Sticky Footer -->
+  <div class="mobile-sticky-footer">
+    <div class="footer-buttons">
+      <button class="footer-btn" onclick="callUs()">CALL US</button>
+      <button class="footer-btn" onclick="contactUs()">CONTACT US</button>
+    </div>
+  </div>
 
+ 
  <script>
   // Simple 2-step form logic
   const nextBtn = document.getElementById('nextBtn');
@@ -1174,33 +1061,6 @@
     }
   });
 
-  // Smooth scrolling for navigation links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        const headerHeight = document.querySelector('.header').offsetHeight;
-        const targetPosition = target.offsetTop - headerHeight - 20;
-        
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-
-  // Header scroll effect
-  window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
-
   // UTM capture into hidden fields
   const params = new URLSearchParams(window.location.search);
   ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(key=>{
@@ -1213,29 +1073,6 @@
     // TODO: integrate with your form endpoint or GHL form action
     // e.preventDefault(); // remove once wired
   });
-
-  // Scroll to top functionality
-  const scrollTopBtn = document.getElementById('scrollTopBtn');
-  
-  // Show/hide scroll button based on scroll position
-  window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-      scrollTopBtn.style.display = 'flex';
-    } else {
-      scrollTopBtn.style.display = 'none';
-    }
-  });
-
-  // Scroll to top when button is clicked
-  scrollTopBtn?.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
-
-  // Initially hide scroll button
-  scrollTopBtn.style.display = 'none';
 </script>
 </body>
 </html>
