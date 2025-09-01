@@ -79,7 +79,7 @@ a:hover { text-decoration:underline }
  
  /* Hero section special styling */
  .hero {
-   background: linear-gradient(135deg,rgba(0,0,0,0.5),rgba(0,0,0,0.7)), url('./images/banner.webp') center center / cover no-repeat !important;
+   background: linear-gradient(135deg,rgba(0,0,0,0.5),rgba(0,0,0,0.7)), url('./images/banner1.webp') center center / cover no-repeat !important;
  }
  
  /* Enhanced section backgrounds with better visual hierarchy */
